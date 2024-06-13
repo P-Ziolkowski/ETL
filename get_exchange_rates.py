@@ -63,7 +63,11 @@ def get_latest_ecb_rates(date):
         while df.empty:
             current_date -= timedelta(days=1)
             df = fetch_ecb_rates()
-    
+
+    if base_currency != "EUR":
+        conver_ratio =  df[df['currency'] == base_currency]['rate'].values[0]
+        df['rate'] = df['rate'].apply(lambda x: x/conver_ratio)
+
     return df
 
 
@@ -75,5 +79,3 @@ def fetch_and_combine_rates():
     combined_rates = pd.concat([ecb_rates, freecurrencyapi_rates])
     
     return combined_rates
-
-print(fetch_and_combine_rates())

@@ -12,7 +12,7 @@ Get API key and set it in settings.py
 ```
 https://freecurrencyapi.com
 ```
-'''
+```
 python create_db.py
 python etl.py
-'''
+```

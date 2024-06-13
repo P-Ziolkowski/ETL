@@ -64,7 +64,7 @@ def get_latest_ecb_rates(date):
             current_date -= timedelta(days=1)
             df = fetch_ecb_rates()
 
-    if base_currency != "EUR":
+    if base_currency != "EUR": #base currency of ECB
         conver_ratio =  df[df['currency'] == base_currency]['rate'].values[0]
         df['rate'] = df['rate'].apply(lambda x: x/conver_ratio)
 

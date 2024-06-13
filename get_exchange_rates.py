@@ -30,8 +30,6 @@ def get_latest_freecurrencyapi_rates():
         return pd.DataFrame()
 
 
-# latest_rates = get_latest_freecurrencyapi_rates()
-# print(latest_rates)
 
 def fetch_ecb_rates():
     url = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
@@ -68,7 +66,14 @@ def get_latest_ecb_rates(date):
     
     return df
 
-# today = datetime.today().strftime('%Y-%m-%d')
-# latest_rates = get_latest_ecb_rates(today)
-# print(latest_rates)
 
+def fetch_and_combine_rates():
+    today = pd.Timestamp.now().strftime('%Y-%m-%d')
+
+    ecb_rates = get_latest_ecb_rates(today)
+    freecurrencyapi_rates = get_latest_freecurrencyapi_rates()
+    combined_rates = pd.concat([ecb_rates, freecurrencyapi_rates])
+    
+    return combined_rates
+
+print(fetch_and_combine_rates())

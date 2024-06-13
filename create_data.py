@@ -5,7 +5,7 @@ from faker import Faker
 fake = Faker()
 
 num_rows = 100
-currencies = ['USD', 'EUR', 'GBP', 'JPY', 'AUD']
+currencies = ['USD', 'EUR', 'AUD']
 sources = ['FreeCurrencyAPI', 'ECB']
 
 data = {

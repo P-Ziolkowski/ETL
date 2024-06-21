@@ -1,6 +1,9 @@
 # ETL 
 The project involves creating a Python-based ETL pipeline to consolidate exchange rate data from multiple sources into a single currency.
+
+To run project
 ```
+git clone https://github.com/P-Ziolkowski/ETL.git
 python3.8 -m venv venv
 source venv/bin/activate
 cd ETL
